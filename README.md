@@ -22,23 +22,29 @@
 1. Clone the repository
 
     git clone https://github.com/syashwanths/Bike-Management-System.git
+   
     cd Bike-Management-System
 
-2. Create a virtual environment
+3. Create a virtual environment
 
     python -m venv venv
+   
     source venv/bin/activate  # on Windows: venv\Scripts\activate
+   
     Install dependencies
 
-3. Apply migrations
+4. Apply migrations
 
     python manage.py makemigrations
+   
     python manage.py migrate
 
-4. Run the server
+6. Run the server
 
     python manage.py runserver
+   
     Access the app
+   
     Open your browser at: http://127.0.0.1:8000/
 
 
