@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1 style="text-decoration:underline;">List of all Companies</h1><br>
+        <div class="row">
+            {% for comp in company_list %}
+            <div class="col-md-4">
+                <div class="card" style="width: 20rem; height: 28rem;">
+                    {% if comp.logo %}
+                        <img class="card-img-top" src="{{ comp.logo.url }}" alt="NA">
+                    {% endif %}
+                    <div class="card-body">
+                        <h1 class="card-text"><a href="{{ comp.id }}" style="text-decoration: none; color: blue;">{{ comp.company_name }}</a></h1>
+                        <h3 class="card-text" style="color: darkred">{{ comp.origin_place }}</h3>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

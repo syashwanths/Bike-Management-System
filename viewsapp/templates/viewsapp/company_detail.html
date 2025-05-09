@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ companies_detail.company_name }} Detail Page</h1>&nbsp;
+    <h4>CEO : {{ companies_detail.ceo }}</h4>
+    <h4>Date of origin : {{ companies_detail.origin_date }}</h4>
+    <h4>Origin Place : {{ companies_detail.origin_place }}</h4>
+    <p><a class="btn btn-warning" href="{% url 'edit' pk=companies_detail.id %}">Edit</a></p>
+    <p><a href="{% url 'delete' pk=companies_detail.id %}" class="btn btn-danger">Delete</a></p>
+    <hr>
+    <h1>List of {{ companies_detail.company_name }} Products</h1> <br>
+    <div class="container">
+        <div class="jumbotron">
+            <div class="row">
+            {% for product in companies_detail.companies.all %}
+            <div class="col-md-5"><br>
+                <div class="card" style="width:27rem; height: 41rem;">
+                    {% if product.pimage %}
+                        <img class="card-img-top" src="{{ product.pimage.url }}" alt="NA">
+                    {% endif %}
+                    <div class="card-body">
+                        <h4 class="card-text">Product Name : {{ product.product_name }}</h4>
+                        <h4 class="card-text">Fuel Type : {{ product.fuel_type }}</h4>
+                        <h4 class="card-text">Mielage : {{ product.mielage }}</h4>
+                        <h4 class="card-text">Tank Capacity : {{ product.tank_capacity }}</h4>
+                        <h4 class="card-text">Colour : {{ product.colour }}</h4>
+                        <h4 class="card-text">Price : {{ product.price }}</h4>
+                        <h4 class="card-text">CC: {{ product.cc }}</h4>
+                        <a href="{%url 'emi' id=product.id %}" class="btn btn-primary">EMI</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

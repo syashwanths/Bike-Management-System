@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Chech EMI options for {{ product_details }}</h1>
+        <h3>Total Product Price is {{ product_details.price }}</h3>
+        <form method="POST">
+            {% csrf_token %}
+            Loan Amount: <input type="text" name="Amount"><br><br>
+            Total_Tenure(In Months): <input type="text" name="tenure"><br><br>
+            Rate_of_Interset: <input type="text" name="interest"><br><br>
+            <input type="submit" value="Calculate" class="btn btn-danger">
+        </form><br>
+        <h4>Emi need to pay per month: <h5>{{ emi_per_month }}</h5></h4>
+    </div>
+</div>
+    
+{% endblock %}
